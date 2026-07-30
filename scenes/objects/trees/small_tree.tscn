@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://lyfeubd8d0w2"]
+
+[ext_resource type="Texture2D" uid="uid://cygxcq4vhs1ud" path="res://assets/objects/basic-grass-biom-things.png" id="1_g81ah"]
+[ext_resource type="Shader" uid="uid://dmojbmxab5fow" path="res://scenes/objects/shake.gdshader" id="1_w057i"]
+[ext_resource type="Script" uid="uid://bofp3tbde3e6h" path="res://scenes/objects/trees/small_tree.gd" id="2_g5iuu"]
+[ext_resource type="PackedScene" uid="uid://jr2sva48aqn2" path="res://scenes/components/hurt_component.tscn" id="2_xyb6m"]
+[ext_resource type="PackedScene" uid="uid://dyt4064ow5jsm" path="res://scenes/components/damage_component.tscn" id="4_w057i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4agr7"]
+resource_local_to_scene = true
+shader = ExtResource("1_w057i")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21b8l"]
+atlas = ExtResource("1_g81ah")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acvp6"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acvp6"]
+size = Vector2(10, 20)
+
+[node name="smallTree" type="Sprite2D" unique_id=2134878346]
+material = SubResource("ShaderMaterial_4agr7")
+texture = SubResource("AtlasTexture_21b8l")
+offset = Vector2(0, -9)
+script = ExtResource("2_g5iuu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=88003855]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1758531444]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_acvp6")
+
+[node name="HurtComponent" parent="." unique_id=1451825099 instance=ExtResource("2_xyb6m")]
+tool = 1
+
+[node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1911698723]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_acvp6")
+debug_color = Color(0.5802394, 0.4719761, 0.757568, 0.41960785)
+
+[node name="DamageComponent" parent="." unique_id=2039375563 instance=ExtResource("4_w057i")]
+max_damage = 3

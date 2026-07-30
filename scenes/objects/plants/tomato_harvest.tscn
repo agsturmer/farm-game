@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cdbryssfgo2gf"]
+
+[ext_resource type="Texture2D" uid="uid://bw8pkj8takanf" path="res://assets/objects/basic-plants.png" id="1_ru7wh"]
+[ext_resource type="PackedScene" uid="uid://cr7qrumb60vmf" path="res://scenes/components/collectable_component.tscn" id="2_puqw6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acvp6"]
+radius = 7.0
+
+[node name="TomatoHarvest" type="Sprite2D" unique_id=717138329]
+texture = ExtResource("1_ru7wh")
+hframes = 6
+vframes = 2
+frame = 11
+
+[node name="CollectableComponent" parent="." unique_id=2006460064 instance=ExtResource("2_puqw6")]
+position = Vector2(-8, 4)
+collectable_name = "tomato"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=1447822473]
+position = Vector2(8, -5)
+shape = SubResource("CircleShape2D_acvp6")

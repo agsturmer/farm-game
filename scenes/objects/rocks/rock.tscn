@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://q146h2l50g1q"]
+
+[ext_resource type="Texture2D" uid="uid://cygxcq4vhs1ud" path="res://assets/objects/basic-grass-biom-things.png" id="1_70ahf"]
+[ext_resource type="Script" uid="uid://udcmpmrgyo68" path="res://scenes/objects/rocks/rock.gd" id="2_f5itc"]
+[ext_resource type="PackedScene" uid="uid://dyt4064ow5jsm" path="res://scenes/components/damage_component.tscn" id="4_bntui"]
+[ext_resource type="PackedScene" uid="uid://jr2sva48aqn2" path="res://scenes/components/hurt_component.tscn" id="4_f5itc"]
+[ext_resource type="Shader" uid="uid://dmojbmxab5fow" path="res://scenes/objects/shake.gdshader" id="5_bntui"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bntui"]
+resource_local_to_scene = true
+shader = ExtResource("5_bntui")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70ahf"]
+atlas = ExtResource("1_70ahf")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acvp6"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6hgg"]
+radius = 7.0
+
+[node name="Rock" type="Sprite2D" unique_id=40138814]
+material = SubResource("ShaderMaterial_bntui")
+texture = SubResource("AtlasTexture_70ahf")
+offset = Vector2(0, -2)
+script = ExtResource("2_f5itc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1302558229]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=724864361]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_acvp6")
+
+[node name="DamageComponent" parent="." unique_id=2039375563 instance=ExtResource("4_bntui")]
+max_damage = 5
+
+[node name="HurtComponent" parent="." unique_id=1451825099 instance=ExtResource("4_f5itc")]
+tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1598921048]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_a6hgg")
+debug_color = Color(0.7679589, 0.37156558, 0.64771193, 0.41960785)
