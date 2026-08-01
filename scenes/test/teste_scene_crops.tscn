@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crh71vgayl5ju" path="res://scenes/characters/player/player.tscn" id="3_58ynd"]
 [ext_resource type="PackedScene" uid="uid://bkesmuwy5ctf2" path="res://scenes/ui/GameScreen.tscn" id="4_y1aah"]
 [ext_resource type="PackedScene" uid="uid://c4ofoumskves0" path="res://scenes/objects/plants/corn.tscn" id="5_sajq8"]
-[ext_resource type="PackedScene" uid="uid://b0ysfyxyp38rw" path="res://scenes/objects/plants/Tomato.tscn" id="6_58ynd"]
+[ext_resource type="PackedScene" uid="uid://b0ysfyxyp38rw" path="res://scenes/objects/plants/tomato.tscn" id="6_58ynd"]
 
 [node name="TesteSceneCrops" type="Node2D" unique_id=1011505942]
 

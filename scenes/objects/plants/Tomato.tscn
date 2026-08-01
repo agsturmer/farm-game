@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cjw2esnvcxfty" path="res://scenes/objects/plants/watering_particles.tscn" id="3_4163e"]
 [ext_resource type="PackedScene" uid="uid://dhaehl34v6e43" path="res://scenes/objects/plants/flowering_particles.tscn" id="4_11k12"]
 [ext_resource type="PackedScene" uid="uid://dmlklvvlh07e1" path="res://scenes/components/growth_cycle_component.tscn" id="5_0h8la"]
+[ext_resource type="PackedScene" uid="uid://dgb4n0gos6xyp" path="res://scenes/components/save_data_component.tscn" id="6_huvgt"]
 [ext_resource type="PackedScene" uid="uid://jr2sva48aqn2" path="res://scenes/components/hurt_component.tscn" id="6_ti2g5"]
+[ext_resource type="Resource" uid="uid://h5bhwowmdgw1" path="res://resources/scene_data_resource.tres" id="7_83wcf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f58x8"]
 load_path = "res://.godot/imported/basic-plants.png-576928fa154b1312cf611ab4269e0ced.ctex"
@@ -37,3 +39,6 @@ tool = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=2048692867]
 position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_a6hgg")
+
+[node name="SaveDataComponent" parent="." unique_id=591309961 instance=ExtResource("6_huvgt")]
+save_data_resource = ExtResource("7_83wcf")

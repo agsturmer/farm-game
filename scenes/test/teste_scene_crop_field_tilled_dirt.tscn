@@ -7,9 +7,19 @@
 [ext_resource type="Script" uid="uid://0p6r5hxgdut2" path="res://scenes/components/field_cursor_component.gd" id="4_5jilv"]
 [ext_resource type="PackedScene" uid="uid://bkesmuwy5ctf2" path="res://scenes/ui/GameScreen.tscn" id="4_k00mf"]
 [ext_resource type="PackedScene" uid="uid://kojv5ci5xjp6" path="res://scenes/components/crops_cursor_component.tscn" id="5_51uw8"]
+[ext_resource type="PackedScene" uid="uid://dgb4n0gos6xyp" path="res://scenes/components/save_data_component.tscn" id="6_gpmpk"]
 [ext_resource type="Script" uid="uid://cq74sqw7tfaxh" path="res://scenes/components/crops_cursor_component.gd" id="6_k00mf"]
+[ext_resource type="Resource" uid="uid://22r0fexkvkmy" path="res://resources/tilemap_layer_data_resource.tres" id="7_y01br"]
+[ext_resource type="PackedScene" uid="uid://kx12yrchvq3q" path="res://scenes/components/save_level_data_component.tscn" id="9_4j3kg"]
+[ext_resource type="Script" uid="uid://c1x015rmpbjhj" path="res://scenes/components/save_level_data_component.gd" id="10_hcrr0"]
+[ext_resource type="PackedScene" uid="uid://ccruy3mgidgr0" path="res://scenes/components/test_scene_save_data_manager_component.tscn" id="11_hcrr0"]
 
 [node name="TesteSceneCropFieldTilledDirt" type="Node2D" unique_id=1011505942]
+
+[node name="TestSceneSaveDataManagerComponent" parent="." unique_id=1362690236 instance=ExtResource("11_hcrr0")]
+
+[node name="SaveLevelDataComponent" parent="." unique_id=571698659 instance=ExtResource("9_4j3kg")]
+script = ExtResource("10_hcrr0")
 
 [node name="DayNightCycleComponent" parent="." unique_id=1682526324 instance=ExtResource("1_xa0c4")]
 visible = false
@@ -29,6 +39,9 @@ tile_set = ExtResource("2_5jilv")
 
 [node name="TilledSoil" type="TileMapLayer" parent="GameTileMap" unique_id=1938787264]
 tile_set = ExtResource("2_5jilv")
+
+[node name="SaveDataComponent" parent="GameTileMap/TilledSoil" unique_id=591309961 instance=ExtResource("6_gpmpk")]
+save_data_resource = ExtResource("7_y01br")
 
 [node name="CropFields" type="Node2D" parent="." unique_id=63565275]
 

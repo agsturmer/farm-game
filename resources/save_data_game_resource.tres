@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://ddy1esuxhssff"]
+
+[ext_resource type="Script" uid="uid://b8cycijdldrh3" path="res://resources/node_data_resource.gd" id="1_j1f61"]
+[ext_resource type="Script" uid="uid://dss1jw1joa1dx" path="res://resources/save_game_data_resource.gd" id="2_s5vsh"]
+
+[resource]
+script = ExtResource("2_s5vsh")
