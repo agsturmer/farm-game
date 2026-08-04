@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://d2l4qmkae76p"]
+
+[ext_resource type="PackedScene" uid="uid://ccf36kioa5ycf" path="res://scenes/components/interactable_label_component.tscn" id="1_6uygw"]
+[ext_resource type="Texture2D" uid="uid://drs3bbadwjj1a" path="res://assets/objects/chest.png" id="1_vjj16"]
+[ext_resource type="Script" uid="uid://cvqb756ku2jto" path="res://scenes/objects/chest/chest.gd" id="1_xdneu"]
+[ext_resource type="PackedScene" uid="uid://b3s24u72l66af" path="res://scenes/components/interactable_component.tscn" id="2_dqrkm"]
+[ext_resource type="PackedScene" uid="uid://bhavblyjpjt76" path="res://scenes/components/feed_component.tscn" id="5_apjbe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqrkm"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uygw"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa468"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdneu"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apjbe"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w3s1"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_815m7"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v87tp"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eh41b"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fedi0"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjj16"]
+atlas = ExtResource("1_vjj16")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_acvp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqrkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uygw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa468")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdneu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apjbe")
+}],
+"loop": 0,
+"name": &"chest_close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w3s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_815m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v87tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eh41b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fedi0")
+}],
+"loop": 0,
+"name": &"chest_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjj16")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acvp6"]
+radius = 25.019993
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6hgg"]
+
+[node name="Chest" type="Node2D" unique_id=89523899]
+script = ExtResource("1_xdneu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1707207813]
+sprite_frames = SubResource("SpriteFrames_acvp6")
+autoplay = "default"
+
+[node name="InteractableComponent" parent="." unique_id=1551106063 instance=ExtResource("2_dqrkm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=752803760]
+shape = SubResource("CircleShape2D_acvp6")
+
+[node name="InteractableLabelComponent" parent="." unique_id=211717674 instance=ExtResource("1_6uygw")]
+offset_left = -30.0
+offset_top = -29.0
+offset_right = -30.0
+offset_bottom = -29.0
+
+[node name="RewardMarker" type="Marker2D" parent="." unique_id=1075671260]
+position = Vector2(18, 19)
+
+[node name="FeedComponent" parent="." unique_id=634152210 instance=ExtResource("5_apjbe")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeedComponent" unique_id=788704977]
+shape = SubResource("CircleShape2D_a6hgg")
+debug_color = Color(0.7576724, 0.42147058, 0.46293038, 0.41960785)
